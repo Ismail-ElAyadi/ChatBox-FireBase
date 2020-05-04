@@ -6,7 +6,7 @@ export default class Header extends Component {
             <header>
 
                     <nav className="navbar navbar-light bg-light">
-                    <a className="navbar-brand col-md-6" href>
+                    <a className="navbar-brand col-md-6" href={`/`}>
                         <img src={logo} width="30" height="30"
                         className="d-inline-block align-top mr-2" alt=""/>
                         ChatBox-App

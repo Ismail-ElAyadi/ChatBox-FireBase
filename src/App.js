@@ -12,9 +12,9 @@ export default class App extends Component {
       <BrowserRouter>
         <Header/>
           <Switch>
-                      <Route exact path='/' component={Connexion} />
-                      <Route path='/chat/:pseudo' component={Body}/>
-                      <Route path='*' component={NotFound}/>
+            <Route exact path='/' component={Connexion} />
+            <Route path='/chat/:pseudo' component={Body}/>
+            <Route path='*' component={NotFound}/>
           </Switch>
         <Footer/>
       </BrowserRouter>
