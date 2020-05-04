@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Footer extends Component {
+export default class NotFound extends Component {
     render() {
         return (
             <div>
-                <h1>footer</h1>
+                <h1>NotFound</h1>
             </div>
         )
     }
