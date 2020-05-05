@@ -9,7 +9,8 @@ export default class Body extends Component {
         messages:{}
     }
     componentDidMount(){
-        base.syncState(`/msg`, {
+        const date = new Date()
+        base.syncState(`/msg of : ${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`, {
           context: this,
           state: 'messages',
         });
@@ -20,7 +21,7 @@ export default class Body extends Component {
         const allMessages = {...messages}
         const date = new Date()
         //msg.date= new Date().toLocaleDateString()
-        allMessages[Date.now()] = {
+        allMessages[`${pseudo}- ${date.getHours()}:${date.getMinutes()}`] = {
             pseudo,
             message:msg,
             date:   `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`,
@@ -29,7 +30,7 @@ export default class Body extends Component {
         this.setState({
             messages:allMessages
         })
-        base.syncState(`/msg`, {
+        base.syncState(`/msg of : ${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`, {
             context: this,
             state: 'messages',
           });

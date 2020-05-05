@@ -9,6 +9,11 @@ handleMessage = (e)=> {
         currentMessage:e.target.value
     })
 }
+handleKey=(e)=>{
+    if(e.key==='Enter'){
+        this.sendInfo(e)
+    }
+}
 sendInfo=(e)=> {
     const {currentMessage} = this.state
     e.preventDefault()
@@ -36,7 +41,7 @@ sendInfo=(e)=> {
                     AllMeSsages
                 </div>
                 <form onSubmit={this.sendInfo}>
-                <textarea value={currentMessage} onChange={this.handleMessage}/>
+                <textarea value={currentMessage} onChange={this.handleMessage} onKeyUp={this.handleKey}/>
                 <button type='submit'>Send</button>
                 {messageEmpty ? <p>{messageEmpty}</p>:null}
                 </form>
