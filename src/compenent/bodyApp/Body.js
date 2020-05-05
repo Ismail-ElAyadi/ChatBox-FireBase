@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
 import Chatbox from './Chatbox'
 import Message from './Message'
+import base from '../../base'
 
 export default class Body extends Component {
     state={
         pseudo:this.props.match.params.pseudo,
         messages:{}
     }
+    componentDidMount(){
+        base.syncState(`/msg`, {
+          context: this,
+          state: 'messages',
+        });
+      }
+
     sendMessage=(msg)=>{
         const {messages,pseudo}=this.state
         const allMessages = {...messages}
@@ -21,6 +29,10 @@ export default class Body extends Component {
         this.setState({
             messages:allMessages
         })
+        base.syncState(`/msg`, {
+            context: this,
+            state: 'messages',
+          });
     }
     render() {
         const {pseudo,messages}=this.state
