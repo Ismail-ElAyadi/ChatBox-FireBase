@@ -1,7 +1,6 @@
-
+require('firebase/database');
 const Rebase = require('re-base');
 const firebase = require('firebase/app');
-const database = require('firebase/database');
 const app = firebase.initializeApp({
     apiKey: "",
     authDomain: "",
